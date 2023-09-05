@@ -4,4 +4,4 @@ from .models import States
 
 @admin.register(States)
 class StateAdmin(admin.ModelAdmin):
-    list_display = ('name', 'population', 'region')
+    list_display = ('name', 'region')

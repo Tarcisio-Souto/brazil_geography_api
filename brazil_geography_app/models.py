@@ -17,7 +17,6 @@ class States(models.Model):
         blank=True)
 
     name = models.CharField(max_length=100, null=False, blank=False)
-    population = models.IntegerField(null=False, blank=False)
     region = models.CharField(choices=REGION_CHOICES, null=False, blank=False, max_length=30)
 
 
@@ -30,7 +29,6 @@ class Counties(models.Model):
         blank=True)
 
     name = models.CharField(max_length=100, null=False, blank=False)
-    population = models.IntegerField(null=False, blank=False)
     state = models.ForeignKey(States, related_name='counties', on_delete=models.CASCADE)
 
 
@@ -43,5 +41,4 @@ class Neighborhoods(models.Model):
         blank=True)
 
     name = models.CharField(max_length=100, null=False, blank=False)
-    population = models.IntegerField(null=False, blank=False, default=0)
     county = models.ForeignKey(Counties, related_name='neighborhoods', on_delete=models.CASCADE)
