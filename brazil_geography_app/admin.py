@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import States
+
+@admin.register(States)
+class StateAdmin(admin.ModelAdmin):
+    list_display = ('name', 'population', 'region')
